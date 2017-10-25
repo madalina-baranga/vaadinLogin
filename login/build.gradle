@@ -22,6 +22,8 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+    jcenter()
+    maven { url 'http://vaadin.com/nexus/content/repositories/vaadin-addons/' }
 }
 
 
@@ -31,8 +33,8 @@ ext {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    //compile('org.springframework.boot:spring-boot-starter-security')
 	compile('com.vaadin:vaadin-spring-boot-starter')
+    compile('org.vaadin.addons:exporter:0.0.7')
 
 	runtime('com.h2database:h2')
 
