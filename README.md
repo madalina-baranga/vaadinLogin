@@ -1,7 +1,6 @@
 # Vaadin Login
 VAADIN 8 + SPRING BOOT + GRADLE + GUAVA
 
-### Description
 A simple login application created for my own curiosity and for the sole purpose of learning.
 There are two methods of calling the authentication logic: by directly calling the method responsible for it or by using Guava event bus.
 
@@ -17,7 +16,7 @@ Access the app at http://localhost:8080.
 
 ### Configuration
 
-H2 in memory databse settings are set in application.properties
+H2 in memory databse settings are set in application.properties.
 Use import.sql to add more users to the application
 
 ### Run the project
