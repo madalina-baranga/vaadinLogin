@@ -2,7 +2,7 @@ package com.example.login.services;
 
 import javax.servlet.http.Cookie;
 
-public interface CookiesManager {
+public interface CookieManager {
     void createCookie(String value);
 
     Cookie getCookieByName();

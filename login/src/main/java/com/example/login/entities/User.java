@@ -10,9 +10,9 @@ import java.util.List;
 @Table(name="USERS")
 public class User{
 
-    @NotNull
     @Id
     @GeneratedValue
+    @NotNull
     private Long id;
     @NotNull
     private String username;
@@ -26,9 +26,6 @@ public class User{
     private String email;
     @NotNull
     private Boolean active;
-
-    @OneToMany
-    private List<Role> roles;
 
     private Date lastLogin;
 
@@ -97,15 +94,4 @@ public class User{
     public void setId(Long id) {
         this.id = id;
     }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-
-
 }

@@ -7,8 +7,11 @@ import javax.servlet.http.Cookie;
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * Handles cookie management
+ */
 @Service
-public class CookiesManagerImpl implements CookiesManager {
+public class CookiesManagerImpl implements CookieManager {
 
     private static final String COOKIE_NAME = "VAADIN-COOKIE";
     private static final String COOKIE_PATH = "/";
@@ -43,6 +46,5 @@ public class CookiesManagerImpl implements CookiesManager {
         cookie.setPath(COOKIE_PATH);
         cookie.setMaxAge(0);
         VaadinService.getCurrentResponse().addCookie(cookie);
-
     }
 }

@@ -1,6 +1,8 @@
 package com.example.login.vaadin;
 
 import com.example.login.LoginUI;
+import com.example.login.events.LoginEventBus;
+import com.example.login.events.LoginUIEvents;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
@@ -8,6 +10,9 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
 
+/**
+ * The page from which the user can login
+ */
 @UIScope
 @SpringView(name = LoginView.VIEW_NAME)
 public class LoginView extends VerticalLayout implements View {
@@ -70,9 +75,32 @@ public class LoginView extends VerticalLayout implements View {
     }
 
     private void authenticate(String username, String password, Boolean rememberMe) {
+        //choose the preferred method of authentication: event based or method calling
+        eventAuthentication(username, password, rememberMe);
+        //mainstreamAuthentication(username, password, rememberMe);
+
+    }
+
+    /**
+     * Authenticates the user by calling a method in the main ui
+     * @param username
+     * @param password
+     * @param rememberMe
+     */
+    private void mainstreamAuthentication(String username, String password, Boolean rememberMe){
         LoginUI ui = (LoginUI) UI.getCurrent();
-        if (!ui.authenticationRequest(username, password, rememberMe)) {
+        if (!ui.login(username, password, rememberMe)) {
             failureLbl.setVisible(true);
         }
+    }
+
+    /**
+     * Authenticates the user by using Guava events
+     * @param username
+     * @param password
+     * @param rememberMe
+     */
+    private void eventAuthentication(String username, String password, Boolean rememberMe){
+        LoginEventBus.post(new LoginUIEvents.UserLoginRequestedEvent(username, password, rememberMe));
     }
 }
