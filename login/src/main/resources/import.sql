@@ -1,1 +1,1 @@
-INSERT INTO USERS (ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, EMAIL, ACTIVE, LAST_LOGIN) VALUES (1, 'Madalina', 'Baranga', 'mbar', 'mbar', 'mada_bmg@yahoo.com', 'true', null);
+INSERT INTO USERS (ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, EMAIL, ACTIVE, LAST_LOGIN) VALUES (1, 'Jane', 'Doe', 'jdoe', 'jdoe', 'jane.doe@email.com', 'true', null);
